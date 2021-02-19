@@ -6,9 +6,9 @@ import os
 import re
 import struct
 
-import gltf2usdUtils
+from . import gltf2usdUtils
 
-from gltf2 import Skin, Node, Animation, Scene, Mesh, Material, GLTFImage, Asset
+from .gltf2 import Skin, Node, Animation, Scene, Mesh, Material, GLTFImage, Asset
 
 
 class AccessorType(Enum):
@@ -249,7 +249,7 @@ class GLTF2Loader(object):
         return value if (remainder == 0) else (value + size - remainder)
 
     def get_data(self, accessor, accessor_index):
-        if accessor_index in self._accessor_data_map.keys():
+        if accessor_index in list(self._accessor_data_map.keys()):
             return self._accessor_data_map[accessor_index]
 
         bufferview = self.json_data['bufferViews'][accessor['bufferView']]

@@ -2,10 +2,10 @@ from enum import Enum
 
 from pxr import Gf, Sdf, UsdGeom, UsdShade
 
-from gltf2 import Material, GLTFImage
+from .gltf2 import Material, GLTFImage
 from _gltf2usd.gltf2usdUtils import GLTF2USDUtils
-from gltf2.Material import AlphaMode
-from gltf2loader import TextureWrap
+from .gltf2.Material import AlphaMode
+from .gltf2loader import TextureWrap
 
 class USDMaterial(object):
     def __init__(self, stage, name, material_scope, index, gltf2loader, scale_texture=False):

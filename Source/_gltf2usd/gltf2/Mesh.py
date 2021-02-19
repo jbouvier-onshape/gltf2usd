@@ -92,7 +92,7 @@ class Primitive(object):
         else:
             position_accessor = gltf_loader.json_data['accessors'][primitive_entry['attributes']['POSITION']]
             count = position_accessor['count']
-            return range(0, count)
+            return list(range(0, count))
 
     def get_attributes(self):
         return self._attributes

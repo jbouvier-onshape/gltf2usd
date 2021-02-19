@@ -8,7 +8,7 @@ class Node(object):
         self._parent = None
         self._name = node_dict['name'] if ('name' in node_dict and len(node_dict['name']) > 0) else 'node_{}'.format(node_index)
         
-        if isinstance(self._name, unicode):
+        if isinstance(self._name, str):
             self._name = unicodedata.normalize('NFKD', self._name).encode('ascii', 'ignore')
 
         self._name = '{0}_{1}'.format(self._name, node_index)

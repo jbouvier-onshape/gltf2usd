@@ -50,7 +50,7 @@ class GLTFImage(object):
                 self._image_path = os.path.join(gltf_loader.root_dir, self._uri)
 
         #decode unicode name to ascii
-        if isinstance(self._name, unicode):
+        if isinstance(self._name, str):
             self._name = self._name.encode('utf-8')
             self._name = self._name.decode('ascii', 'ignore')
 
@@ -127,7 +127,7 @@ class GLTFImage(object):
                 texture_transform_prefix_name= 'o{0}{1}s{2}{3}r{4}_'.format(offset[0], offset[1], scale[0], scale[1], rotation).replace('.', '_')
                 file_name = texture_transform_prefix_name + file_name
                 destination = os.path.join(output_dir, file_name)
-                print('Generating texture transformed image "{}" ...'.format(file_name))
+                print(('Generating texture transformed image "{}" ...'.format(file_name)))
                 img = self._transform_image(img, translate=offset, scale=scale, rotation=rotation)
 
         img.save(destination, optimize=self._optimize_textures)
